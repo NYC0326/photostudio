@@ -27,9 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    'question.apps.QuestionConfig',
     'reserve.apps.ReserveConfig',
-    'review.apps.ReviewConfig',
     'studio.apps.StudioConfig',
     'rest_framework',
 ]
