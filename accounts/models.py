@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-# Create your models here.
+# 헬퍼 클래스
 class UserManager(BaseUserManager):
     # 일반 유저 생성
-    def create_user(self, email, username, nickname, privillege, password=None):
+    def create_user(self, email, username, contact, nickname, privillege, password=None):
         if not email:
             raise ValueError('이메일은 필수입니다')
+        if not contact:
+            raise ValueError('전화번호는 필수입니다')
         if not username:
             raise ValueError('아이디는 필수입니다')
         if not nickname:
@@ -14,6 +16,7 @@ class UserManager(BaseUserManager):
         user = self.model(
             email = self.normalize_email(email),
             username = username,
+            contact = contact,
             nickname = nickname,
             privillege = privillege,
         )
@@ -22,11 +25,12 @@ class UserManager(BaseUserManager):
         return user
 
     # 관리자 유저 생성
-    def create_superuser(self, email, username, nickname, password=None):
+    def create_superuser(self, email, username, contact, nickname, password=None):
         user = self.create_user(
             email,
             password = password,
             username = username,
+            contact = contact,
             nickname = nickname
         )
         user.is_admin = True
@@ -36,6 +40,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     username = models.CharField(max_length=20, unique=True)
     email = models.EmailField(default='', max_length=30, null=False, blank=False)
+    contact = models.CharField(max_length = 15, default='')
     nickname = models.CharField(default='', max_length=20, null=False, blank=False, unique=True)
     privillege = models.BooleanField(default='False')
     
@@ -49,7 +54,7 @@ class User(AbstractBaseUser):
     # 사용자의 username field는 nickname으로 설정
     USERNAME_FIELD = 'nickname'
     # 필수로 작성해야하는 field
-    REQUIRED_FIELDS = ['username', 'email', 'nickname']
+    REQUIRED_FIELDS = ['username', 'email', 'contact', 'nickname']
 
     def __str__(self):
         return self.nickname
