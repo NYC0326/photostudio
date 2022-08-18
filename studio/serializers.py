@@ -11,3 +11,6 @@ class StudioSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     studio = StudioSerializer(read_only=True)
 
+    class Meta:
+        model = User
+        fiels = ('ceo_id')
