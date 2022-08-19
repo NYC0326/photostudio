@@ -5,11 +5,11 @@ from accounts.models import User
 from answer.serializers import AnswerSerializer
 
 class QuestionSerializer(serializers.ModelSerializer):
-    question_id = AnswerSerializer(many=True, read_only=True)
+    answer = AnswerSerializer(many=True, read_only=True)
 
     class Meta:
         model = Question
-        fields = ('id', 'studio_id', 'user_question_id', 'title', 'date', 'question', 'question_id')
+        fields = ('id', 'studio_id', 'user_question_id', 'title', 'date', 'question', 'answer')
 
     def to_representation(self, instance):
         self.fields['studio_id'] = StudioRepresentationSerializer(read_only=True)

@@ -42,7 +42,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(default='', max_length=30, null=False, blank=False)
     contact = models.CharField(max_length = 15, default='')
     nickname = models.CharField(default='', max_length=20, null=False, blank=False, unique=True)
-    privillege = models.BooleanField(default='False')
+    privillege = models.BooleanField(default=False)
     
     # User 모델의 필수 field
     is_active = models.BooleanField(default=True)    

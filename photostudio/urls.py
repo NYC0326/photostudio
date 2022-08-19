@@ -8,5 +8,6 @@ urlpatterns = [
     path('studios/', include('studio.urls')),
     path('question/', include('question.urls')),
     path('answer/', include('answer.urls')),
-    path('portfolio/', include('photo.urls'))
+    path('portfolio/', include('photo.urls')),
+    path('reserve/', include('reserve.urls')),
 ]

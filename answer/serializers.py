@@ -6,7 +6,7 @@ from question.models import Question
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        fields = ('id', 'question_id', 'user_answer_id', 'answer')
+        fields = ('id', 'question_id', 'user_answer_id', 'reply')
 
     def to_representation(self, instance):
         self.fields['question_id'] = QuestionRepresentationSerializer(read_only=True)
