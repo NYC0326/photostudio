@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'answer.apps.AnswerConfig',
+    'categoryStudio',
     'photo.apps.PhotoConfig',
     'question.apps.QuestionConfig',
     'reserve.apps.ReserveConfig',

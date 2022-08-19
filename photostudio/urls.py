@@ -10,4 +10,5 @@ urlpatterns = [
     path('answer/', include('answer.urls')),
     path('portfolio/', include('photo.urls')),
     path('reserve/', include('reserve.urls')),
+    path('category/', include('categoryStudio.urls')),
 ]
