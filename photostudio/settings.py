@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-4pzrjbnygbponzqweq+y1+zs!siyza7w#qn%g&@aa@rl!+^qip
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["bryan326.pythonanywhere.com"]
+ALLOWED_HOSTS = ["bryan326.pythonanywhere.com", "https://port-0-photostudio-kl5t24l70efum1.gksl1.cloudtype.app"]
 
 
 # Application definition
