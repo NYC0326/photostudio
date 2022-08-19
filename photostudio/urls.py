@@ -11,4 +11,6 @@ urlpatterns = [
     path('portfolio/', include('photo.urls')),
     path('reserve/', include('reserve.urls')),
     path('category/', include('categoryStudio.urls')),
+    path('signup/', include('accounts.urlssignup')),
+    path('create/', include('studio.urlscreate')),
 ]
